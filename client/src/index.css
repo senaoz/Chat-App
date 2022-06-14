@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 body {
-    @apply m-10 md:m-14 lg:m-20 prose;
+  @apply m-10 md:m-14 lg:m-20 prose;
 }
