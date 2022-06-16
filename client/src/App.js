@@ -1,12 +1,17 @@
+import { ChatProvider, useChat } from "./context/chatContext";
 import Contacts from "./components/Contacts";
-import MessagingArea from "./components/MessagingArea";
+import ChatList from "./components/ChatList";
 
 function App() {
+  const data = useChat();
+  console.log(data);
   return (
-    <div className="App sm:grid sm:grid-cols-2 gap-4">
-      <Contacts />
-      <MessagingArea />
-    </div>
+    <ChatProvider>
+      <main className="sm:grid sm:grid-cols-2 gap-4">
+        <Contacts />
+        <ChatList />
+      </main>
+    </ChatProvider>
   );
 }
 

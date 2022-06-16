@@ -1,7 +1,6 @@
 import React from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
-import { Container } from "postcss";
 
 export default function Contacts() {
   const Image = styled.img.attrs({
@@ -14,6 +13,7 @@ export default function Contacts() {
   })``;
 
   const people = ["Ali", "Veli", "Aysel", "Sena"];
+  console.log(people);
 
   const MessageCard = styled.span.attrs({
     className: "dark:bg-gray-800 bg-white p-4 m-1 rounded-lg w-full",
@@ -34,16 +34,16 @@ export default function Contacts() {
       {people.map((person, index) => (
         <Container>
           <Image
-            key={index}
+            key={"img" + index}
             src="https://via.placeholder.com/150"
             alt={person}
           />
-          <MessageCard key={index}>
+          <MessageCard key={"message" + index}>
             <span className="grid grid-cols-2">
               <h3>{person}</h3>
               <p className="text-right">TIME</p>
             </span>
-            <p>TEXT #YazAlışverişi'ne özel Altınyıldız, Kiğılı, Damat...</p>
+            <p>TEXT</p>
           </MessageCard>
         </Container>
       ))}
