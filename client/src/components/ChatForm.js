@@ -1,5 +1,6 @@
 import tw from "twin.macro";
 import styled from "styled-components";
+import { useState } from "react";
 
 export default function ChatForm() {
   const Form = styled.form.attrs({
@@ -10,9 +11,23 @@ export default function ChatForm() {
     }
   `;
 
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(message);
+
+    setMessage("");
+  };
+
   return (
-    <Form>
-      <input type="text" placeholder="Type a message..." />
+    <Form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+        placeholder="Type a message..."
+      />
     </Form>
   );
 }
