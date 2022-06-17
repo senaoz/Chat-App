@@ -15,6 +15,8 @@ export default function Contacts() {
 
   const people = useChat().chat;
 
+  console.log("people: ", people);
+
   const MessageCard = styled.span.attrs({
     className: "dark:bg-gray-800 bg-white p-4 m-1 rounded-lg w-full",
   })`
@@ -48,10 +50,23 @@ export default function Contacts() {
               <h3>{person.user}</h3>
               <p className="text-right">{person.lastMessageTime}</p>
             </span>
-            <p>TEXT</p>
+            <p>{person.messages[person.messages.length - 1].text}</p>
           </MessageCard>
         </Container>
       ))}
     </div>
   );
 }
+
+/*
+
+console.log(person.active);
+        if (person.active === true) {
+            person.messages.map((message, index) =>
+            return (
+                <Message key={"Message " + index} fromMe={message.fromMe}>{message.text}</Message>
+            ));
+        }
+
+        return none;
+* */

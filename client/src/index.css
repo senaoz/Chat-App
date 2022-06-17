@@ -3,8 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply
-  m-14
+  @apply m-14
   bg-gray-100 dark:bg-gray-900
   prose dark:prose-invert max-w-screen-xl place-content-center
   text-sm prose-neutral;

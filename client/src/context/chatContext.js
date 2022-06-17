@@ -32,11 +32,11 @@ export const ChatProvider = ({ children }) => {
       user: "John",
       profilePic:
         "https://raw.githubusercontent.com/senaoz/Chat-App/master/client/public/images/profil-6.png",
-      messages: {
-        1: { text: "Hello", fromMe: true },
-        2: { text: "Hi", fromMe: true },
-        3: { text: "Hi 👋 How are u?", fromMe: false },
-      },
+      messages: [
+        { text: "Hello", fromMe: true },
+        { text: "Hi", fromMe: true },
+        { text: "Hi 👋 How are u?", fromMe: false },
+      ],
       lastMessageTime: "15 June 2022",
       active: false,
     },
