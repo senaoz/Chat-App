@@ -5,22 +5,40 @@ export const ChatContext = createContext();
 export const ChatProvider = ({ children }) => {
   const [chat, setChat] = useState([
     {
-      user: "Betül Oz",
-      profilePic: "/public/images/profil-4.png",
-      messages: {
-        1: { text: "Hello", sender: "me" },
-        2: { text: "Hi", sender: "me" },
-        3: { text: "Hi 👋 How are u?", sender: "his/her" },
-      },
+      user: "Olivia",
+      profilePic:
+        "https://raw.githubusercontent.com/senaoz/Chat-App/master/client/public/images/profil-3.png",
+      messages: [
+        { text: "Hello", fromMe: true },
+        { text: "Hi", fromMe: true },
+        { text: "Hi 👋 How are u?", fromMe: false },
+      ],
+      lastMessageTime: "11:53",
+      active: true,
     },
     {
-      user: "Sena Oz",
-      profilePic: "/public/images/profil-3.png",
+      user: "Michael",
+      profilePic:
+        "https://raw.githubusercontent.com/senaoz/Chat-App/master/client/public/images/profil-2.png",
+      messages: [
+        { text: "Hello", fromMe: true },
+        { text: "Hi", fromMe: true },
+        { text: "Hi 👋 How are u?", fromMe: false },
+      ],
+      lastMessageTime: "Yesterday",
+      active: false,
+    },
+    {
+      user: "John",
+      profilePic:
+        "https://raw.githubusercontent.com/senaoz/Chat-App/master/client/public/images/profil-6.png",
       messages: {
-        1: { text: "Hello", sender: "me" },
-        2: { text: "Hi", sender: "me" },
-        3: { text: "Hi 👋 How are u?", sender: "his/her" },
+        1: { text: "Hello", fromMe: true },
+        2: { text: "Hi", fromMe: true },
+        3: { text: "Hi 👋 How are u?", fromMe: false },
       },
+      lastMessageTime: "15 June 2022",
+      active: false,
     },
   ]);
 

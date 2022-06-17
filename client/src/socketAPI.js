@@ -13,3 +13,9 @@ export const init = () => {
     console.log("Connected!");
   });
 };
+
+export const SendMessage = (message) => {
+  if (socket) {
+    socket.emit("new-message", message);
+  }
+};
