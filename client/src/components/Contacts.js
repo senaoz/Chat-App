@@ -12,12 +12,54 @@ export default function Contacts() {
       "flex items-center py-2 border-b-2 border-gray-200 dark:border-gray-800",
   })``;
 
-  const people = ["Ali", "Veli", "Aysel", "Sena"];
+  const people = [
+    {
+      user: "Olivia",
+      profilePic:
+        "https://raw.githubusercontent.com/senaoz/Chat-App/master/client/public/images/profil-3.png?token=GHSAT0AAAAAABVW3OPTOPEAULYQTYE722SYYVMME2A",
+      messages: {
+        1: { text: "Hello", sender: "me" },
+        2: { text: "Hi", sender: "me" },
+        3: { text: "Hi 👋 How are u?", sender: "his/her" },
+      },
+      lastMessageTime: "11:53",
+      active: true,
+    },
+    {
+      user: "Michael",
+      profilePic:
+        "https://raw.githubusercontent.com/senaoz/Chat-App/master/client/public/images/profil-5.png?token=GHSAT0AAAAAABVW3OPTPHDMGWOLQ3ROLE5KYVMMDAQ",
+      messages: {
+        1: { text: "Hello", sender: "me" },
+        2: { text: "Hi", sender: "me" },
+        3: { text: "Hi 👋 How are u?", sender: "his/her" },
+      },
+      lastMessageTime: "15 June 2022",
+      active: false,
+    },
+    {
+      user: "John",
+      profilePic:
+        "https://raw.githubusercontent.com/senaoz/Chat-App/master/client/public/images/profil-5.png?token=GHSAT0AAAAAABVW3OPTPHDMGWOLQ3ROLE5KYVMMDAQ",
+      messages: {
+        1: { text: "Hello", sender: "me" },
+        2: { text: "Hi", sender: "me" },
+        3: { text: "Hi 👋 How are u?", sender: "his/her" },
+      },
+      lastMessageTime: "Yesterday",
+      active: false,
+    },
+  ];
   console.log(people);
 
   const MessageCard = styled.span.attrs({
     className: "dark:bg-gray-800 bg-white p-4 m-1 rounded-lg w-full",
   })`
+    ${(props) =>
+      props.active === true
+        ? tw`dark:bg-gray-600 border border-2 border-blue-500 dark:border-none`
+        : " "}
+
     & p,
     h1,
     h2,
@@ -35,13 +77,13 @@ export default function Contacts() {
         <Container>
           <Image
             key={"img" + index}
-            src="https://via.placeholder.com/150"
-            alt={person}
+            src={person.profilePic}
+            alt={person.user}
           />
-          <MessageCard key={"message" + index}>
+          <MessageCard key={"message" + index} active={person.active}>
             <span className="grid grid-cols-2">
-              <h3>{person}</h3>
-              <p className="text-right">TIME</p>
+              <h3>{person.user}</h3>
+              <p className="text-right">{person.lastMessageTime}</p>
             </span>
             <p>TEXT</p>
           </MessageCard>
