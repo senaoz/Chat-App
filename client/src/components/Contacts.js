@@ -20,7 +20,7 @@ export default function Contacts() {
 
   const people = useChat().chat;
 
-  const MessageCard = styled.span.attrs({
+  const Card = styled.span.attrs({
     className: "dark:bg-gray-800 bg-white p-4 rounded-lg w-full",
   })`
     ${(props) =>
@@ -38,6 +38,25 @@ export default function Contacts() {
       ${tw`m-0`}
     }
   `;
+
+  const { setChat } = useChat();
+  const changeUser = (user) => {
+    let newData = people.map((obj) => {
+      if (obj.user === user) {
+        return {
+          ...obj,
+          active: true,
+        };
+      } else {
+        return {
+          ...obj,
+          active: false,
+        };
+      }
+    });
+
+    setChat(newData);
+  };
 
   function MessageTime(messageTime) {
     const theDate = new Date(messageTime);
@@ -67,13 +86,17 @@ export default function Contacts() {
   return (
     <div className="flex flex-col divide-y">
       {people.map((person, index) => (
-        <Container key={"Message Card " + index} index={index}>
+        <Container
+          key={"Message Card " + index}
+          index={index}
+          onClick={() => changeUser(person.user)}
+        >
           <Image
             key={"img" + index}
             src={person.profilePic}
             alt={person.user}
           />
-          <MessageCard key={"message" + index} active={person.active}>
+          <Card key={"message" + index} active={person.active}>
             <span className="grid grid-cols-2">
               <h3>{person.user}</h3>
               <p className="text-right">
@@ -81,7 +104,7 @@ export default function Contacts() {
               </p>
             </span>
             <p>{person.messages[person.messages.length - 1].text}</p>
-          </MessageCard>
+          </Card>
         </Container>
       ))}
     </div>

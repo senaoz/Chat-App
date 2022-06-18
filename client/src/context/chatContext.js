@@ -32,7 +32,7 @@ export const ChatProvider = ({ children }) => {
         "https://raw.githubusercontent.com/senaoz/Chat-App/master/client/public/images/profil-6.png",
       messages: [
         { text: "Can I call you later?", fromMe: true },
-        { text: "Of course", fromMe: true },
+        { text: "Of course", fromMe: false },
         { text: "Just making sure we're still on", fromMe: false },
       ],
       lastMessageTime: 1655572296617,

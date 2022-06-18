@@ -22,6 +22,7 @@ export default function ChatForm(props) {
             { text: message, fromMe: true, time: Date.now() },
           ],
           lastMessageTime: Date.now(),
+          active: obj.active,
         };
       }
       // else return the same object
