@@ -11,31 +11,29 @@ export const ChatProvider = ({ children }) => {
       messages: [
         { text: "Hello", fromMe: true },
         { text: "What's going on?", fromMe: true },
-        { text: "Hi 👋 Everything is great, how are u?", fromMe: false },
+        { text: "Hi 👋 Everything is great, how about you?", fromMe: false },
       ],
       lastMessageTime: 1655572296617, //Date.now()
-      active: true,
+      active: false,
     },
     {
       user: "Michael",
       profilePic:
         "https://raw.githubusercontent.com/senaoz/Chat-App/master/client/public/images/profil-2.png",
       messages: [
-        { text: "Hello", fromMe: true },
-        { text: "What's going on?", fromMe: true },
-        { text: "Hi 👋 Everything is great, how are u?", fromMe: false },
+        { text: "What time is that meeting with Mr Nakamura?", fromMe: false },
       ],
       lastMessageTime: 1655572296617,
-      active: false,
+      active: true,
     },
     {
       user: "John",
       profilePic:
         "https://raw.githubusercontent.com/senaoz/Chat-App/master/client/public/images/profil-6.png",
       messages: [
-        { text: "Hello", fromMe: true },
-        { text: "What's going on?", fromMe: true },
-        { text: "Hi 👋 Everything is great, how are u?", fromMe: false },
+        { text: "Can I call you later?", fromMe: true },
+        { text: "Of course", fromMe: true },
+        { text: "Just making sure we're still on", fromMe: false },
       ],
       lastMessageTime: 1655572296617,
       active: false,

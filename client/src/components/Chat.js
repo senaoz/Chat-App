@@ -37,8 +37,11 @@ export default function Chat() {
   const list = [];
   console.log("list: ", list);
 
+  const activeUser = [];
+
   data.map((person) => {
     if (person.active === true) {
+      activeUser.push(person.user);
       person.messages.map((message) => list.push(message));
     }
   });
@@ -52,7 +55,7 @@ export default function Chat() {
           </Message>
         ))}
       </section>
-      <ChatForm user="Olivia" />
+      <ChatForm user={activeUser[0]} />
     </Container>
   );
 }
