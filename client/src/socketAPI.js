@@ -14,8 +14,8 @@ export const init = () => {
   });
 };
 
-export const SendMessage = (message) => {
+export const SendMessage = (chat) => {
   if (socket) {
-    socket.emit("new-message", message);
+    socket.emit("new-message", chat);
   }
 };

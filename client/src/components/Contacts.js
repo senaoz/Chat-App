@@ -9,16 +9,19 @@ export default function Contacts() {
   })``;
 
   const Container = styled.div.attrs({
-    className:
-      "flex items-center py-2 border-b-2 border-gray-200 dark:border-gray-800",
-  })``;
+    className: "flex items-center border-gray-200 dark:border-gray-800",
+  })`
+    ${(props) => {
+      if (props.index === people.length - 1) return tw`pt-2`;
+      if (props.index === 0) return tw`pb-2`;
+      else return tw`py-2`;
+    }}
+  `;
 
   const people = useChat().chat;
 
-  console.log("people: ", people);
-
   const MessageCard = styled.span.attrs({
-    className: "dark:bg-gray-800 bg-white p-4 m-1 rounded-lg w-full",
+    className: "dark:bg-gray-800 bg-white p-4 rounded-lg w-full",
   })`
     ${(props) =>
       props.active === true
@@ -36,10 +39,35 @@ export default function Contacts() {
     }
   `;
 
+  function MessageTime(messageTime) {
+    const theDate = new Date(messageTime);
+    const today = new Date();
+    const yesterday = new Date(today);
+    yesterday.setDate(yesterday.getDate() - 1);
+
+    if (
+      theDate.toLocaleString().split(",")[0] ===
+      today.toLocaleString().split(",")[0]
+    ) {
+      return theDate.getHours().toLocaleString() + ":" + theDate.getMinutes();
+    } else if (
+      theDate.toLocaleString().split(",")[0] ===
+      yesterday.toLocaleString().split(",")[0]
+    ) {
+      return "Yesterday";
+    } else {
+      return theDate
+        .toLocaleString("tr-TR", {
+          timeZone: "UTC",
+        })
+        .split(" ")[0];
+    }
+  }
+
   return (
-    <div>
+    <div className="flex flex-col divide-y">
       {people.map((person, index) => (
-        <Container key={"Message Card " + index}>
+        <Container key={"Message Card " + index} index={index}>
           <Image
             key={"img" + index}
             src={person.profilePic}
@@ -48,7 +76,9 @@ export default function Contacts() {
           <MessageCard key={"message" + index} active={person.active}>
             <span className="grid grid-cols-2">
               <h3>{person.user}</h3>
-              <p className="text-right">{person.lastMessageTime}</p>
+              <p className="text-right">
+                {MessageTime(person.lastMessageTime)}
+              </p>
             </span>
             <p>{person.messages[person.messages.length - 1].text}</p>
           </MessageCard>
@@ -57,16 +87,3 @@ export default function Contacts() {
     </div>
   );
 }
-
-/*
-
-console.log(person.active);
-        if (person.active === true) {
-            person.messages.map((message, index) =>
-            return (
-                <Message key={"Message " + index} fromMe={message.fromMe}>{message.text}</Message>
-            ));
-        }
-
-        return none;
-* */

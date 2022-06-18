@@ -10,10 +10,10 @@ export const ChatProvider = ({ children }) => {
         "https://raw.githubusercontent.com/senaoz/Chat-App/master/client/public/images/profil-3.png",
       messages: [
         { text: "Hello", fromMe: true },
-        { text: "Hi", fromMe: true },
-        { text: "Hi 👋 How are u?", fromMe: false },
+        { text: "What's going on?", fromMe: true },
+        { text: "Hi 👋 Everything is great, how are u?", fromMe: false },
       ],
-      lastMessageTime: "11:53",
+      lastMessageTime: 1655572296617, //Date.now()
       active: true,
     },
     {
@@ -22,10 +22,10 @@ export const ChatProvider = ({ children }) => {
         "https://raw.githubusercontent.com/senaoz/Chat-App/master/client/public/images/profil-2.png",
       messages: [
         { text: "Hello", fromMe: true },
-        { text: "Hi", fromMe: true },
-        { text: "Hi 👋 How are u?", fromMe: false },
+        { text: "What's going on?", fromMe: true },
+        { text: "Hi 👋 Everything is great, how are u?", fromMe: false },
       ],
-      lastMessageTime: "Yesterday",
+      lastMessageTime: 1655572296617,
       active: false,
     },
     {
@@ -34,10 +34,10 @@ export const ChatProvider = ({ children }) => {
         "https://raw.githubusercontent.com/senaoz/Chat-App/master/client/public/images/profil-6.png",
       messages: [
         { text: "Hello", fromMe: true },
-        { text: "Hi", fromMe: true },
-        { text: "Hi 👋 How are u?", fromMe: false },
+        { text: "What's going on?", fromMe: true },
+        { text: "Hi 👋 Everything is great, how are u?", fromMe: false },
       ],
-      lastMessageTime: "15 June 2022",
+      lastMessageTime: 1655572296617,
       active: false,
     },
   ]);

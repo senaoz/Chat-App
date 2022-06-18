@@ -13,10 +13,15 @@ export default function ChatForm(props) {
     let newData = data.map((obj) => {
       // If the ID matches then update the value
       if (obj.user === e.target.id) {
-        console.log("obj.user: ", obj.user);
         return {
           ...obj,
-          messages: [...obj.messages, { text: message, fromMe: true }],
+          user: obj.user,
+          profilePic: obj.profilePic,
+          messages: [
+            ...obj.messages,
+            { text: message, fromMe: true, time: Date.now() },
+          ],
+          lastMessageTime: Date.now(),
         };
       }
       // else return the same object
@@ -24,14 +29,13 @@ export default function ChatForm(props) {
     });
 
     setChat(newData);
-
-    SendMessage(message);
+    SendMessage(e.target.id, message);
     setMessage("");
   };
 
   return (
     <form
-      className="w-full flex flex-col"
+      className="absolute bottom-4 right-4 left-4 flex flex-col"
       onSubmit={handleSubmit}
       id={props.user}
     >
