@@ -11,8 +11,10 @@ function App() {
 
   return (
     <ChatProvider>
-      <Contacts />
-      <Chat />
+      <div className="sm:grid sm:grid-cols-2 gap-4">
+        <Contacts />
+        <Chat />
+      </div>
     </ChatProvider>
   );
 }
